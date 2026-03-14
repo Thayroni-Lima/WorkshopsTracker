@@ -13,7 +13,7 @@ var connectionString =
     $"Password={Environment.GetEnvironmentVariable("DB_PASSWORD")};";
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+    options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 0))));
 
 var app = builder.Build();
 
