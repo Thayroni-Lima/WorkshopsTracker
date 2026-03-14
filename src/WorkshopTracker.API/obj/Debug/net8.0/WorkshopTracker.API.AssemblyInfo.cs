@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WorkshopTracker.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c9258995ed71e91b202bd55b6f269bc48a55ae53")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a3cbc5143fd8c0748ea4fb9adac48cca2c36640a")]
 [assembly: System.Reflection.AssemblyProductAttribute("WorkshopTracker.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WorkshopTracker.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
