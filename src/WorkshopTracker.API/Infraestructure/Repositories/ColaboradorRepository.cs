@@ -16,7 +16,7 @@ public class ColaboradorRepository : IColaboradorRepository
 
     // Implementação dos métodos do repositório
 
-    public async Task<Colaborador> GetByIdAsync(int id)
+    public async Task<Colaborador?> GetByIdAsync(int id)
     {
         return await _context.Colaboradores
             .FirstOrDefaultAsync(c => c.Id == id);

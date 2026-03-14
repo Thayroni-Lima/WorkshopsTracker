@@ -16,7 +16,7 @@ public class WorkshopRepository : IWorkshopRepository
 
     // Implementação dos métodos do repositório
 
-    public async Task<Workshop> GetByIdAsync(int id)
+    public async Task<Workshop?> GetByIdAsync(int id)
     {
         return await _context.Workshops
             .Include(w => w.WorkshopColaboradores)
