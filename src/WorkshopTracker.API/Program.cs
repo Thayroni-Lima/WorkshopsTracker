@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using WorkshopTracker.API.Infrastructure.Data;
+// Carrega as variáveis de ambiente do arquivo .env
+DotNetEnv.Env.Load("../../.env");
 
 var builder = WebApplication.CreateBuilder(args);
 
