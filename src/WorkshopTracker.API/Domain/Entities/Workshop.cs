@@ -7,5 +7,4 @@ public class Workshop
 
      // navigation property -> EF Core usa isso para fazer JOIN com WorkshopColaborador
     public ICollection<WorkshopColaborador> WorkshopColaboradores { get; set; } = new List<WorkshopColaborador>();
-    public IEnumerable<object> Colaboradores { get; internal set; }
 }

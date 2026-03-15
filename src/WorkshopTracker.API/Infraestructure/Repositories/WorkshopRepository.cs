@@ -55,6 +55,7 @@ public class WorkshopRepository : IWorkshopRepository
         }
     }
 
+    // Método para obter workshops associados a um colaborador específico
     public async Task<IEnumerable<Workshop>> GetByColaboradorIdAsync(int colaboradorId)
     {
         return await _context.WorkshopColaboradores
@@ -63,6 +64,7 @@ public class WorkshopRepository : IWorkshopRepository
             .ToListAsync();
     }
 
+    // Métodos para associar e desassociar colaboradores a workshops
     public async Task AddColaboradorAsync(int workshopId, int colaboradorId)
     {
         var workshopColaborador = new WorkshopColaborador
@@ -74,6 +76,7 @@ public class WorkshopRepository : IWorkshopRepository
         await _context.SaveChangesAsync();
     }
 
+    // Método para remover a associação de um colaborador a um workshop específico
     public async Task RemoveColaboradorAsync(int workshopId, int colaboradorId)
     {
         var workshopColaborador = await _context.WorkshopColaboradores
