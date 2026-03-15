@@ -41,8 +41,16 @@ builder.Services.AddCors(options =>
     });
 });
 
+// Adiciona serviços para controladores e documentação Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 // Adiciona serviços para controladores
 var app = builder.Build();
+
+// Configura o middleware para usar Swagger e Swagger UI
+app.UseSwagger();
+app.UseSwaggerUI();
 
 // Configura o middleware para usar CORS
 app.UseCors("AllowAll");
