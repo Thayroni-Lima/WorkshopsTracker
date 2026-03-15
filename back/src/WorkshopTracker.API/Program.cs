@@ -9,9 +9,6 @@ using WorkshopTracker.API.Infrastructure.Repositories;
 // Carrega as variáveis de ambiente do arquivo .env
 DotNetEnv.Env.Load("../../.env");
 
-// Configura o builder do aplicativo
-var builder = WebApplication.CreateBuilder(args);
-
 // Configura a string de conexão usando as variáveis de ambiente
 var connectionString =
     $"Server={Environment.GetEnvironmentVariable("DB_HOST")};" +
@@ -19,6 +16,11 @@ var connectionString =
     $"Database={Environment.GetEnvironmentVariable("DB_NAME")};" +
     $"User={Environment.GetEnvironmentVariable("DB_USER")};" +
     $"Password={Environment.GetEnvironmentVariable("DB_PASSWORD")};";
+
+//-------
+
+// Configura o builder do aplicativo
+var builder = WebApplication.CreateBuilder(args);
 
 // Configura o DbContext para usar MySQL
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -45,12 +47,10 @@ builder.Services.AddCors(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//-------
+
 // Adiciona serviços para controladores
 var app = builder.Build();
-
-// Configura o middleware para usar Swagger e Swagger UI
-app.UseSwagger();
-app.UseSwaggerUI();
 
 // Configura o middleware para usar CORS
 app.UseCors("AllowAll");
@@ -58,6 +58,20 @@ app.UseCors("AllowAll");
 // Mapeia os endpoints para colaboradores e workshops
 app.MapColaboradorEndpoints();
 app.MapWorkshopEndpoints();
+
+// Inicializa os dados de teste no banco de dados
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    SeedData.Initialize(db);
+}
+
+// Configura o middleware para usar Swagger e Swagger UI
+app.UseSwagger();
+app.UseSwaggerUI();
+
+// Redireciona a raiz para a documentação Swagger
+app.MapGet("/", () => Results.Redirect("/swagger"));
 
 // Configura o pipeline de middleware
 app.Run();

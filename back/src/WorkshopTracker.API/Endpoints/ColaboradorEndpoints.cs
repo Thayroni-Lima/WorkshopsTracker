@@ -6,7 +6,7 @@ public static class ColaboradorEndpoints
 {
     public static void MapColaboradorEndpoints(this WebApplication app)
     {
-        var group = app.MapGroup("/api/colaboradores");
+        var group = app.MapGroup("/api/colaboradores").WithTags("Colaboradores");
 
         // GET: api/colaboradores
         group.MapGet("/", async (IColaboradorService service) =>

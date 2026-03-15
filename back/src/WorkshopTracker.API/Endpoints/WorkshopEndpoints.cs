@@ -6,7 +6,7 @@ public static class WorkshopEndpoints
 {
     public static void MapWorkshopEndpoints(this WebApplication app)
     {
-        var group = app.MapGroup("/api/workshops");
+        var group = app.MapGroup("/api/workshops").WithTags("Workshops");
 
         // GET: api/workshops
         group.MapGet("/", async (IWorkshopService service) =>
