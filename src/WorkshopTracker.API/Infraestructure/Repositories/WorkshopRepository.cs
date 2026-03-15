@@ -58,10 +58,11 @@ public class WorkshopRepository : IWorkshopRepository
     // Método para obter workshops associados a um colaborador específico
     public async Task<IEnumerable<Workshop>> GetByColaboradorIdAsync(int colaboradorId)
     {
-        return await _context.WorkshopColaboradores
-            .Where(wc => wc.ColaboradorId == colaboradorId)
-            .Select(wc => wc.Workshop)
-            .ToListAsync();
+    return await _context.Workshops
+        .Include(w => w.WorkshopColaboradores)
+            .ThenInclude(wc => wc.Colaborador)
+        .Where(w => w.WorkshopColaboradores.Any(wc => wc.ColaboradorId == colaboradorId))
+        .ToListAsync();
     }
 
     // Métodos para associar e desassociar colaboradores a workshops
