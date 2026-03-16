@@ -37,7 +37,7 @@ dotnet tool install --global dotnet-ef --version 8.0.0
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/Thayroni-Lima/WorkshopTracker.git
+git clone https://github.com/Thayroni-Lima/WorkshopsTracker.git
 cd WorkshopTracker
 ```
 
