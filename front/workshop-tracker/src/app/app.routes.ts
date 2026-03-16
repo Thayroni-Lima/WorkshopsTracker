@@ -15,7 +15,7 @@ export const routes: Routes = [
     path: 'workshops',
     loadComponent: () =>
       import('./pages/workshops/workshop-list/workshop-list').then(
-        (m) => m.WorkshopList,
+        (m) => m.Workshops,
       ),
   },
   {
