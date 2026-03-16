@@ -1,1 +1,12 @@
-<p>colaboradores works!</p>
+<div class="container">
+  <h1>Colaboradores</h1>
+
+  <div *ngIf="loading()">Carregando...</div>
+  <div *ngIf="error()">{{ error() }}</div>
+
+  <ul *ngIf="!loading() && !error()">
+    <li *ngFor="let colaborador of colaboradores()">
+      {{ colaborador.id }} — {{ colaborador.nome }}
+    </li>
+  </ul>
+</div>
