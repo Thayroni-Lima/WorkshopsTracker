@@ -20,7 +20,7 @@ Antes de rodar o projeto, certifique-se de ter instalado:
 
 | Ferramenta | Versão mínima | Download |
 |---|---|---|
-| .NET SDK | 8.0 | https://dotnet.microsoft.com/download |
+| .NET SDK | 8.0 | https://dotnet.microsoft.com/pt-br/download/dotnet/8.0 |
 | Docker Desktop | qualquer | https://www.docker.com/products/docker-desktop |
 | dotnet-ef (CLI) | 8.0 | via terminal (instrução abaixo) |
 
