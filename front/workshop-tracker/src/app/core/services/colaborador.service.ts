@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Colaborador } from '../models/colaborador.model';
-import { Workshop } from '../models/workshop.model';
+import { Colaborador } from '../../models/colaborador.model';
+import { Workshop } from '../../models/workshop.model';
 
 @Injectable({
   providedIn: 'root',
