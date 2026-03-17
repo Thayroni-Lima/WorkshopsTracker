@@ -3,13 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Colaborador } from '../../models/colaborador.model';
 import { Workshop } from '../../models/workshop.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WorkshopService {
-  private apiUrl = 'http://localhost:5064/api/workshops';
-
+  private apiUrl = `${environment.apiUrl}/api/workshops`;
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<Workshop[]> {

@@ -7,7 +7,7 @@ using WorkshopTracker.API.Infrastructure.Data;
 using WorkshopTracker.API.Infrastructure.Repositories;
 
 // Carrega as variáveis de ambiente do arquivo .env
-DotNetEnv.Env.Load("../../.env");
+DotNetEnv.Env.Load();
 
 // Configura a string de conexão usando as variáveis de ambiente
 var connectionString =

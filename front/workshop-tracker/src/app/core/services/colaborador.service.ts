@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Colaborador } from '../../models/colaborador.model';
 import { Workshop } from '../../models/workshop.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ColaboradorService {
-  private apiUrl = 'http://localhost:5064/api/colaboradores';
+  private apiUrl = `${environment.apiUrl}/api/colaboradores`;
 
   constructor(private http: HttpClient) {}
 
