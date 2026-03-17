@@ -1,13 +1,13 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ColaboradorService } from '../../core/services/colaborador.service';
-import { Colaborador } from '../../models/colaborador.model';
+import { ColaboradorService } from '../../../core/services/colaborador.service';
+import { Colaborador } from '../../../models/colaborador.model';
 
 @Component({
   selector: 'app-colaboradores',
   imports: [CommonModule],
-  templateUrl: './colaboradores.html',
-  styleUrl: './colaboradores.css',
+  templateUrl: './colaboradores-list.html',
+  styleUrl: './colaboradores-list.css',
 })
 
 export class Colaboradores implements OnInit {

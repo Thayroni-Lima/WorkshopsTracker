@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Colaboradores } from './colaboradores';
+import { Colaboradores } from './colaboradores-list';
 
 describe('Colaboradores', () => {
   let component: Colaboradores;

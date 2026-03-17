@@ -9,7 +9,7 @@ export const routes: Routes = [
   {
     path: 'colaboradores',
     loadComponent: () =>
-      import('./pages/colaboradores/colaboradores').then((m) => m.Colaboradores),
+      import('./pages/colaboradores/colaboradores-list/colaboradores-list').then((m) => m.Colaboradores),
   },
   {
     path: 'workshops',
