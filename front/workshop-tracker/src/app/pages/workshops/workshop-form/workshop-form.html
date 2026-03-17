@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>{{ isEditing() ? 'Editar Workshop' : 'Novo Workshop' }}</h1>
+
+  <div *ngIf="error()">{{ error() }}</div>
+
+  <div>
+    <label>Nome</label>
+    <input [(ngModel)]="nome" [ngModelOptions]="{standalone: true}" placeholder="Nome do workshop" />
+  </div>
+
+  <button (click)="save()">
+    {{ isEditing() ? 'Salvar' : 'Criar' }}
+  </button>
+
+  <button *ngIf="isEditing()" (click)="delete()">
+    Deletar
+  </button>
+
+  <a routerLink="/workshopes">Cancelar</a>
+</div>

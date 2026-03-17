@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-
   // Rotas para colaboradores
   {
     path: 'colaboradores',
@@ -13,20 +12,23 @@ export const routes: Routes = [
   {
     path: 'colaboradores/new',
     loadComponent: () =>
-      import('./pages/colaboradores/colaborador-form/colaborador-form')
-        .then(m => m.ColaboradorForm)
+      import('./pages/colaboradores/colaborador-form/colaborador-form').then(
+        (m) => m.ColaboradorForm,
+      ),
   },
   {
     path: 'colaboradores/:id/edit',
     loadComponent: () =>
-      import('./pages/colaboradores/colaborador-form/colaborador-form')
-        .then(m => m.ColaboradorForm)
+      import('./pages/colaboradores/colaborador-form/colaborador-form').then(
+        (m) => m.ColaboradorForm,
+      ),
   },
   {
     path: 'colaboradores/:id/workshops',
     loadComponent: () =>
-      import('./pages/colaboradores/colaborador-workshops/colaborador-workshops')
-        .then(m => m.ColaboradorWorkshops)
+      import('./pages/colaboradores/colaborador-workshops/colaborador-workshops').then(
+        (m) => m.ColaboradorWorkshops,
+      ),
   },
 
   // Rotas para workshops
@@ -41,8 +43,15 @@ export const routes: Routes = [
       import('./pages/workshops/workshop-list/workshop-list').then((m) => m.Workshops),
   },
   {
-    path: 'workshops/:id',
+    path: 'workshops/new',
     loadComponent: () =>
-      import('./pages/workshops/workshop-details/workshop-details').then((m) => m.WorkshopDetails),
+      import('./pages/workshops/workshop-form/workshop-form').then(
+        (m) => m.WorkshopForm,
+      ),
+  },
+  {
+    path: 'workshops/:id/edit',
+    loadComponent: () =>
+      import('./pages/workshops/workshop-form/workshop-form').then((m) => m.WorkshopForm),
   },
 ];
