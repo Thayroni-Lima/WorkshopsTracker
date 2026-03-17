@@ -4,13 +4,27 @@
   <div *ngIf="loading()">Carregando...</div>
   <div *ngIf="error()">{{ error() }}</div>
 
-  <ul *ngIf="!loading() && !error()">
-    <li *ngFor="let workshop of workshops()">
-      <a [routerLink]="['/workshops', workshop.id]">
-        {{ workshop.nome }}
-      </a>
-    </li>
-  </ul>
+  <div *ngIf="!loading()">
+
+    <h2>Associados</h2>
+    <ul>
+      <li *ngFor="let workshop of workshops()">
+        <a [routerLink]="['/workshops', workshop.id, 'edit']">{{ workshop.nome }}</a>
+        <button (click)="remover(workshop.id)">🗑</button>
+      </li>
+    </ul>
+    <p *ngIf="workshops().length === 0">Nenhum workshop associado.</p>
+
+    <h2>Disponíveis para adicionar</h2>
+    <ul>
+      <li *ngFor="let workshop of disponiveis()">
+        <a [routerLink]="['/workshops', workshop.id, 'edit']">{{ workshop.nome }}</a>
+        <button (click)="adicionar(workshop.id)">+ Adicionar</button>
+      </li>
+    </ul>
+    <p *ngIf="disponiveis().length === 0">Todos os workshops já estão associados.</p>
+
+  </div>
 
   <a routerLink="/colaboradores">← Voltar</a>
 </div>

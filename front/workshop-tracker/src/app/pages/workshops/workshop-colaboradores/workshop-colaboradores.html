@@ -9,7 +9,7 @@
     <h2>Associados</h2>
     <ul>
       <li *ngFor="let colaborador of colaboradores()">
-        {{ colaborador.nome }}
+        <a [routerLink]="['/colaboradores', colaborador.id, 'edit']">{{ colaborador.nome }}</a>
         <button (click)="remover(colaborador.id)">🗑</button>
       </li>
     </ul>
@@ -18,7 +18,7 @@
     <h2>Disponíveis para adicionar</h2>
     <ul>
       <li *ngFor="let colaborador of disponiveis()">
-        {{ colaborador.nome }}
+        <a [routerLink]="['/colaboradores', colaborador.id, 'edit']">{{ colaborador.nome }}</a>
         <button (click)="adicionar(colaborador.id)">+ Adicionar</button>
       </li>
     </ul>
