@@ -59,4 +59,11 @@ export const routes: Routes = [
         (m) => m.WorkshopColaboradores,
       ),
   },
+
+  // Rota para dashboard
+  {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./pages/dashboard/dashboard').then((m) => m.Dashboard),
+  },
 ];

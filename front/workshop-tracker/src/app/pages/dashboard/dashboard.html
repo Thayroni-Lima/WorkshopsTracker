@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Dashboard</h1>
+
+  <div *ngIf="loading()">Carregando...</div>
+
+  <div *ngIf="!loading()">
+    <h2>Workshops por Colaborador</h2>
+    <canvas baseChart
+      [data]="barChartData()"
+      [options]="barChartOptions"
+      type="bar">
+    </canvas>
+
+    <h2>Colaboradores por Workshop</h2>
+    <canvas baseChart
+      [data]="pieChartData()"
+      [options]="pieChartOptions"
+      type="pie">
+    </canvas>
+  </div>
+</div>
