@@ -1,13 +1,13 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, RouterModule } from '@angular/router';
 import { WorkshopService } from '../../../core/services/workshop.service';
 import { Workshop } from '../../../models/workshop.model';
 
 @Component({
   selector: 'app-workshop-form',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './workshop-form.html',
   styleUrl: './workshop-form.css',
 })

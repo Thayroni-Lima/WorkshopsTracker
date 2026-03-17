@@ -1,13 +1,13 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, RouterModule } from '@angular/router';
 import { ColaboradorService } from '../../../core/services/colaborador.service';
 import { Colaborador } from '../../../models/colaborador.model';
 
 @Component({
   selector: 'app-colaborador-form',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './colaborador-form.html',
   styleUrl: './colaborador-form.css',
 })
