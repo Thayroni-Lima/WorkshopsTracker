@@ -22,6 +22,12 @@ export const routes: Routes = [
       import('./pages/colaboradores/colaborador-form/colaborador-form')
         .then(m => m.ColaboradorForm)
   },
+  {
+    path: 'colaboradores/:id/workshops',
+    loadComponent: () =>
+      import('./pages/colaboradores/colaborador-workshops/colaborador-workshops')
+        .then(m => m.ColaboradorWorkshops)
+  },
 
   // Rotas para workshops
   {
