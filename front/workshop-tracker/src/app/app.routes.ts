@@ -45,13 +45,18 @@ export const routes: Routes = [
   {
     path: 'workshops/new',
     loadComponent: () =>
-      import('./pages/workshops/workshop-form/workshop-form').then(
-        (m) => m.WorkshopForm,
-      ),
+      import('./pages/workshops/workshop-form/workshop-form').then((m) => m.WorkshopForm),
   },
   {
     path: 'workshops/:id/edit',
     loadComponent: () =>
       import('./pages/workshops/workshop-form/workshop-form').then((m) => m.WorkshopForm),
+  },
+  {
+    path: 'workshops/:id/colaboradores',
+    loadComponent: () =>
+      import('./pages/workshops/workshop-colaboradores/workshop-colaboradores').then(
+        (m) => m.WorkshopColaboradores,
+      ),
   },
 ];
