@@ -1,15 +1,15 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { WorkshopService } from '../../../core/services/workshop.service';
 import { Workshop } from '../../../models/workshop.model';
 
 @Component({
   selector: 'app-workshops',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './workshop-list.html',
   styleUrl: './workshop-list.css',
 })
-
 export class Workshops implements OnInit {
   workshops = signal<Workshop[]>([]);
   loading = signal(true);

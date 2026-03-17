@@ -1,0 +1,50 @@
+Estágio - Desafio Fast - FullStack.pdf
+
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# Logs
+*.log
+
+# Others
+TestResults/
+*.vspscc
+*.vssscc
+_ReSharper*/
+*.dbmdl
+*.pdb
+*.cache
+*.mdb
+*.opendb
+*.pidb
+*.svclog
+*.scc
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs_vista.db
+
+# Environment variables
+.env

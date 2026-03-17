@@ -1,12 +1,14 @@
 <div class="container">
-  <h1>Workshops </h1>
+  <h1>Workshops</h1>
 
   <div *ngIf="loading()">Carregando...</div>
   <div *ngIf="error()">{{ error() }}</div>
 
   <ul *ngIf="!loading() && !error()">
     <li *ngFor="let workshop of workshops()">
-      {{ workshop.id }} — {{ workshop.nome }}
+      <a [routerLink]="['/workshops', workshop.id]">
+        {{ workshop.nome }}
+      </a>
     </li>
   </ul>
 </div>
