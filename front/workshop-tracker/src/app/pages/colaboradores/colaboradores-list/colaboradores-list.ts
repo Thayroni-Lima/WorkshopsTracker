@@ -1,11 +1,12 @@
 import { Component, OnInit, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ColaboradorService } from '../../../core/services/colaborador.service';
 import { Colaborador } from '../../../models/colaborador.model';
 
 @Component({
   selector: 'app-colaboradores',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './colaboradores-list.html',
   styleUrl: './colaboradores-list.css',
 })
