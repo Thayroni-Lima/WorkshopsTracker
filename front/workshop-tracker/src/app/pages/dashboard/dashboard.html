@@ -1,21 +1,52 @@
 <div class="container">
-  <h1>Dashboard</h1>
+  <div class="mb-4">
+    <h1 class="page-title">Dashboard</h1>
+    <p style="color: #64748b; margin: 0.25rem 0 0; font-size: 0.9rem;">
+      Visualize métricas de participação nos workshops
+    </p>
+  </div>
 
-  <div *ngIf="loading()">Carregando...</div>
+  <div *ngIf="loading()" class="text-center py-5">
+    <div class="spinner-border"></div>
+  </div>
 
-  <div *ngIf="!loading()">
-    <h2>Workshops por Colaborador</h2>
-    <canvas baseChart
-      [data]="barChartData()"
-      [options]="barChartOptions"
-      type="bar">
-    </canvas>
+  <div *ngIf="!loading()" class="row g-4">
+    <div class="col-md-7">
+      <div class="card h-100">
+        <div class="card-body p-4">
+          <h5 style="font-weight: 600; margin-bottom: 0.25rem;">
+            <i class="bi bi-bar-chart-fill me-2" style="color: var(--primary);"></i>
+            Workshops por Colaborador
+          </h5>
+          <p style="color: #64748b; font-size: 0.85rem; margin-bottom: 1.5rem;">
+            Quantidade de workshops que cada colaborador participou
+          </p>
+          <canvas baseChart
+            [data]="barChartData()"
+            [options]="barChartOptions"
+            type="bar">
+          </canvas>
+        </div>
+      </div>
+    </div>
 
-    <h2>Colaboradores por Workshop</h2>
-    <canvas baseChart
-      [data]="pieChartData()"
-      [options]="pieChartOptions"
-      type="pie">
-    </canvas>
+    <div class="col-md-5">
+      <div class="card h-100">
+        <div class="card-body p-4">
+          <h5 style="font-weight: 600; margin-bottom: 0.25rem;">
+            <i class="bi bi-pie-chart-fill me-2" style="color: var(--primary);"></i>
+            Colaboradores por Workshop
+          </h5>
+          <p style="color: #64748b; font-size: 0.85rem; margin-bottom: 1.5rem;">
+            Distribuição de presença em cada workshop
+          </p>
+          <canvas baseChart
+            [data]="pieChartData()"
+            [options]="pieChartOptions"
+            type="pie">
+          </canvas>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

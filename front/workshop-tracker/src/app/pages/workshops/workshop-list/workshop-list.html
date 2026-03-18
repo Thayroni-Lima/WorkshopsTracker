@@ -1,20 +1,60 @@
 <div class="container">
-  <h1>Workshops</h1>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h1 class="page-title">Workshops</h1>
+      <p style="color: #64748b; margin: 0.25rem 0 0; font-size: 0.9rem;">
+        Acompanhe todos os eventos realizados
+      </p>
+    </div>
+    <a routerLink="/workshops/new" class="btn btn-primary">
+      <i class="bi bi-plus-lg"></i> Novo Workshop
+    </a>
+  </div>
 
-  <a routerLink="/workshops/new">+ Adicionar Workshop</a>
+  <div *ngIf="loading()" class="text-center py-5">
+    <div class="spinner-border"></div>
+    <p class="mt-2" style="color: #64748b; font-size: 0.9rem;">Carregando...</p>
+  </div>
 
-  <div *ngIf="loading()">Carregando...</div>
-  <div *ngIf="error()">{{ error() }}</div>
+  <div *ngIf="error()" class="alert alert-danger">
+    <i class="bi bi-exclamation-circle me-2"></i>{{ error() }}
+  </div>
 
-  <ul *ngIf="!loading() && !error()">
-    <li *ngFor="let workshop of workshops()">
-      <a [routerLink]="['/workshops', workshop.id, 'edit']">
-        {{ workshop.nome }}
-      </a>
-      -
-      <a [routerLink]="['/workshops', workshop.id, 'colaboradores']">
-        ver colaboradores
-      </a>
-    </li>
-  </ul>
+    <div *ngIf="!loading() && !error()" class="list-group">
+      <div *ngFor="let workshop of workshops()"
+        class="list-group-item d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-3">
+          <div style="width: 38px; height: 38px; border-radius: 10px; background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center;">
+            <i class="bi bi-mortarboard-fill"></i>
+          </div>
+          <div>
+            <span style="font-weight: 500;">{{ workshop.nome }}</span>
+            <div style="font-size: 0.8rem; color: #94a3b8;">
+              <i class="bi bi-calendar3 me-1"></i>
+              {{ workshop.dataRealizacao | date:'dd/MM/yyyy' }}
+            </div>
+          </div>
+        </div>
+        <div class="d-flex gap-2 align-items-center">
+          <span class="badge-count">
+            <i class="bi bi-people-fill me-1"></i>
+            {{ workshop.colaboradores.length }}
+          </span>
+          <a [routerLink]="['/workshops', workshop.id, 'colaboradores']"
+            class="btn btn-sm btn-outline-secondary">
+            <i class="bi bi-people"></i> Colaboradores
+          </a>
+          <a [routerLink]="['/workshops', workshop.id, 'edit']"
+            class="btn btn-sm btn-primary">
+            <i class="bi bi-pencil"></i> Editar
+          </a>
+        </div>
+      </div>
+
+      <p *ngIf="workshops().length === 0"
+        class="text-center py-5" style="color: #64748b;">
+        <i class="bi bi-mortarboard" style="font-size: 2rem; display: block; margin-bottom: 0.5rem;"></i>
+        Nenhum workshop cadastrado ainda.
+      </p>
+    </div>
 </div>

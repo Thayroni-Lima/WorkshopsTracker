@@ -13,6 +13,8 @@ import { Workshop } from '../../../models/workshop.model';
 })
 export class WorkshopForm implements OnInit {
   nome = signal('');
+  descricao = signal('');
+  dataRealizacao = signal('');
   isEditing = signal(false);
   workshopId = signal<number | null>(null);
   loading = signal(false);
@@ -32,7 +34,11 @@ export class WorkshopForm implements OnInit {
       this.workshopId.set(Number(id));
 
       this.workshopService.getById(Number(id)).subscribe({
-        next: (data) => this.nome.set(data.nome),
+        next: (data) => {
+          this.nome.set(data.nome);
+          this.descricao.set(data.descricao);
+          this.dataRealizacao.set(data.dataRealizacao.substring(0, 10));
+        },
         error: () => this.error.set('Erro ao carregar workshop.'),
       });
     }
@@ -41,7 +47,11 @@ export class WorkshopForm implements OnInit {
   save(): void {
     if (!this.nome()) return;
 
-    const workshop: Partial<Workshop> = { nome: this.nome() };
+    const workshop: Partial<Workshop> = {
+      nome: this.nome(),
+      descricao: this.descricao(),
+      dataRealizacao: this.dataRealizacao()
+    };
 
     if (this.isEditing() && this.workshopId()) {
       this.workshopService.update(this.workshopId()!, workshop as Workshop).subscribe({

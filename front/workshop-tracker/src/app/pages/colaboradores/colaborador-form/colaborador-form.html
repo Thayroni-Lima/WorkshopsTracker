@@ -1,20 +1,47 @@
-<div class="container">
-  <h1>{{ isEditing() ? 'Editar Colaborador' : 'Novo Colaborador' }}</h1>
-
-  <div *ngIf="error()">{{ error() }}</div>
-
-  <div>
-    <label>Nome</label>
-    <input [(ngModel)]="nome" [ngModelOptions]="{standalone: true}" placeholder="Nome do colaborador" />
+<div class="container" style="max-width: 520px;">
+  <div class="mb-4">
+    <a routerLink="/colaboradores"
+      style="color: #64748b; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; gap: 0.3rem;">
+      <i class="bi bi-arrow-left"></i> Voltar para lista
+    </a>
   </div>
 
-  <button (click)="save()">
-    {{ isEditing() ? 'Salvar' : 'Criar' }}
-  </button>
+  <h1 class="page-title mb-1">
+    {{ isEditing() ? 'Editar Colaborador' : 'Novo Colaborador' }}
+  </h1>
+  <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1.5rem;">
+    {{ isEditing() ? 'Atualize os dados do colaborador' : 'Preencha os dados para cadastrar' }}
+  </p>
 
-  <button *ngIf="isEditing()" (click)="delete()">
-    Deletar
-  </button>
+  <div *ngIf="error()" class="alert alert-danger mb-3">
+    <i class="bi bi-exclamation-circle me-2"></i>{{ error() }}
+  </div>
 
-  <a routerLink="/colaboradores">Cancelar</a>
+  <div class="card">
+    <div class="card-body p-4">
+      <div class="mb-4">
+        <label class="form-label fw-600" style="font-weight: 600; font-size: 0.875rem;">
+          Nome completo
+        </label>
+        <input
+          [(ngModel)]="nome"
+          [ngModelOptions]="{standalone: true}"
+          class="form-control"
+          placeholder="Ex: João Silva" />
+      </div>
+
+      <div class="d-flex gap-2 flex-wrap">
+        <button (click)="save()" class="btn btn-primary">
+          <i class="bi bi-check-lg"></i>
+          {{ isEditing() ? 'Salvar alterações' : 'Criar colaborador' }}
+        </button>
+        <button *ngIf="isEditing()" (click)="delete()" class="btn btn-danger">
+          <i class="bi bi-trash3"></i> Deletar
+        </button>
+        <a routerLink="/colaboradores" class="btn btn-outline-secondary">
+          Cancelar
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

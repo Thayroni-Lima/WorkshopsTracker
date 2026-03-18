@@ -1,7 +1,28 @@
-<nav>
-  <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a><br>
-  <a routerLink="/colaboradores" routerLinkActive="active">Colaboradores</a><br>
-  <a routerLink="/workshops" routerLinkActive="active">Workshops</a>
+<nav class="navbar navbar-expand-lg px-4 py-3" style="background: white; border-bottom: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+  <a class="navbar-brand d-flex align-items-center gap-2 fw-700" routerLink="/dashboard" style="color: #4f46e5; font-weight: 700; font-size: 1.1rem;">
+    <i class="bi bi-calendar-check-fill"></i>
+    Workshop Tracker
+  </a>
+  <div class="navbar-nav ms-auto d-flex flex-row gap-1">
+    <a class="nav-link px-3 py-2 rounded-3 d-flex align-items-center gap-2"
+      routerLink="/dashboard"
+      routerLinkActive="active"
+      style="font-size: 0.9rem; font-weight: 500; color: #64748b; transition: all 0.15s;">
+      <i class="bi bi-bar-chart-fill"></i> Dashboard
+    </a>
+    <a class="nav-link px-3 py-2 rounded-3 d-flex align-items-center gap-2"
+      routerLink="/colaboradores"
+      routerLinkActive="active"
+      style="font-size: 0.9rem; font-weight: 500; color: #64748b; transition: all 0.15s;">
+      <i class="bi bi-people-fill"></i> Colaboradores
+    </a>
+    <a class="nav-link px-3 py-2 rounded-3 d-flex align-items-center gap-2"
+      routerLink="/workshops"
+      routerLinkActive="active"
+      style="font-size: 0.9rem; font-weight: 500; color: #64748b; transition: all 0.15s;">
+      <i class="bi bi-mortarboard-fill"></i> Workshops
+    </a>
+  </div>
 </nav>
 
 <router-outlet />

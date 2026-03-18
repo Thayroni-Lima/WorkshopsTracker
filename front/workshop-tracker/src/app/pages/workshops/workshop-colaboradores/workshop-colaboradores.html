@@ -1,30 +1,77 @@
 <div class="container">
-  <h1>Colaboradores do Workshop</h1>
-
-  <div *ngIf="loading()">Carregando...</div>
-  <div *ngIf="error()">{{ error() }}</div>
-
-  <div *ngIf="!loading()">
-
-    <h2>Associados</h2>
-    <ul>
-      <li *ngFor="let colaborador of colaboradores()">
-        <a [routerLink]="['/colaboradores', colaborador.id, 'edit']">{{ colaborador.nome }}</a>
-        <button (click)="remover(colaborador.id)">🗑</button>
-      </li>
-    </ul>
-    <p *ngIf="colaboradores().length === 0">Nenhum colaborador associado.</p>
-
-    <h2>Disponíveis para adicionar</h2>
-    <ul>
-      <li *ngFor="let colaborador of disponiveis()">
-        <a [routerLink]="['/colaboradores', colaborador.id, 'edit']">{{ colaborador.nome }}</a>
-        <button (click)="adicionar(colaborador.id)">+ Adicionar</button>
-      </li>
-    </ul>
-    <p *ngIf="disponiveis().length === 0">Todos os colaboradores já estão associados.</p>
-
+  <div class="mb-4">
+    <a routerLink="/workshops"
+      style="color: #64748b; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; gap: 0.3rem;">
+      <i class="bi bi-arrow-left"></i> Voltar para workshops
+    </a>
   </div>
 
-  <a routerLink="/workshops">← Voltar</a>
+  <h1 class="page-title mb-1">Colaboradores do Workshop</h1>
+  <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1.5rem;">
+    Gerencie as presenças neste workshop
+  </p>
+
+  <div *ngIf="loading()" class="text-center py-5">
+    <div class="spinner-border"></div>
+  </div>
+
+  <div *ngIf="!loading()">
+    <div class="card mb-4">
+      <div class="card-body p-4">
+        <h5 style="font-weight: 600; margin-bottom: 1rem;">
+          <i class="bi bi-check-circle-fill me-2" style="color: var(--success);"></i>
+          Presentes
+        </h5>
+        <div class="list-group">
+          <div *ngFor="let colaborador of colaboradores()"
+            class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-3">
+              <div style="width: 34px; height: 34px; border-radius: 50%; background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem;">
+                {{ colaborador.nome.charAt(0).toUpperCase() }}
+              </div>
+              <a [routerLink]="['/colaboradores', colaborador.id, 'edit']"
+                style="text-decoration: none; color: var(--text); font-weight: 500;">
+                {{ colaborador.nome }}
+              </a>
+            </div>
+            <button (click)="remover(colaborador.id)" class="btn btn-sm btn-danger">
+              Remover
+              <i class="bi bi-trash3"></i>
+            </button>
+          </div>
+        </div>
+        <p *ngIf="colaboradores().length === 0"
+          class="text-center py-3" style="color: #64748b; margin: 0;">
+          Nenhum colaborador presente.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body p-4">
+        <h5 style="font-weight: 600; margin-bottom: 1rem;">
+          <i class="bi bi-plus-circle-fill me-2" style="color: var(--primary);"></i>
+          Disponíveis para adicionar
+        </h5>
+        <div class="list-group">
+          <div *ngFor="let colaborador of disponiveis()"
+            class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-3">
+              <div style="width: 34px; height: 34px; border-radius: 50%; background: #f1f5f9; color: #94a3b8; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem;">
+                {{ colaborador.nome.charAt(0).toUpperCase() }}
+              </div>
+              <span style="font-weight: 500;">{{ colaborador.nome }}</span>
+            </div>
+            <button (click)="adicionar(colaborador.id)" class="btn btn-sm btn-primary">
+              <i class="bi bi-plus-lg"></i> Adicionar
+            </button>
+          </div>
+        </div>
+        <p *ngIf="disponiveis().length === 0"
+          class="text-center py-3" style="color: #64748b; margin: 0;">
+          Todos os colaboradores já estão presentes.
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
