@@ -38,7 +38,7 @@ services:
 
   frontend:
     build:
-      context: ./front/workshop-tracker
+      context: ./front
       dockerfile: Dockerfile
     container_name: workshoptracker-frontend
     restart: always
